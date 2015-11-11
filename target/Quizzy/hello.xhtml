@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Quiz creator </title>
+        <h:outputStylesheet name="/resources/css/style.css"/>
+
+    </h:head>
+    <h:body >
+
+        <p:layout fullPage="true">
+            <p:layoutUnit position="center" >
+                <p:accordionPanel multiple="false" activeIndex="0" id="tabs">
+                    <p:tab title="Se connecter" >
+                        <h:form id="connection">
+                            <h:outputText value=" Adresse email" />
+                            <br />
+                            <p:inputText id="mail" value="#{login.mail}"></p:inputText>
+                            <br />
+                            <br />
+                            <h:outputText value=" Mot de passe " />
+                            <br />
+                            <p:inputText id="pwd" type="password" value="#{login.pwd}"
+                                         required="true"  requiredMessage="">
+                            </p:inputText>
+                            <h:message for="pwd" style="color:red"></h:message>
+                            <br /><br />
+                            <p:message for="mail"></p:message>
+                            <br/>
+                            <p:commandButton value="OK" icon="ui-icon-circle-check" action="#{login.validateMailPaswword()}" ajax="false"></p:commandButton>
+                        </h:form>
+                    </p:tab>
+                    <p:tab title="S'inscrire">
+                        <h:form>
+                            <h:outputText value=" Nom " />
+                            <br />
+                            <p:inputText id="nom"></p:inputText>
+                            <br />
+                            <h:outputText value=" Prenom " />
+                            <br />
+                            <p:inputText id="prenom"></p:inputText>
+                            <br />
+                            <h:outputText value="  Adresse email "/>
+                            <br />
+                            <p:inputText id="mail"></p:inputText>
+                            <br />
+                            <h:outputText value=" Mot de passe " />
+                            <br />
+                            <p:inputText id="pwd" type="password"></p:inputText>
+                            <br />   <br />             
+                            <p:button value="Confirmer" icon="ui-icon-circle-check" ></p:button>
+                        </h:form>
+                    </p:tab>
+                    <p:tab title="Comment ça marche ? " closable="true">
+                        Vous êtes curieux, vous aimez les challenges, les quizs, c'est l'endroit parfait pour en s'assurer  ...
+                        mais comment ?
+                        <br/><br/>
+                        <ul type="circle">
+                            <li>Publier vos propres quizzs</li>
+                            <li>Résoudre les quizzs des autres, et gagnez plus de points !</li>
+                        </ul>
+                    </p:tab>
+
+                </p:accordionPanel>
+
+            </p:layoutUnit>
+
+            <p:layoutUnit position="west" size="550" header="Bienvenue à tous !" collapsible="true" footer="">
+                <h:graphicImage value="/resources/images/think.jpg"></h:graphicImage>
+            </p:layoutUnit>
+        </p:layout>
+<!--         <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" /> -->
+
+
+        <br />
+    </h:body>
+
+</html>
+
