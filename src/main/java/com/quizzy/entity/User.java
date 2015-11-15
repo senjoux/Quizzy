@@ -36,6 +36,8 @@ public class User implements Serializable{
 	Set<User_Answer> user_questions_answers=new HashSet<User_Answer>(0);
 	
 	Set<Result> user_results=new HashSet<Result>(0);
+	
+	Double score;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -103,7 +105,13 @@ public class User implements Serializable{
 		this.user_results = user_results;
 	}
 
-	
+	@Column(name = "SCORE",  nullable = false)
+	public Double getScore() {
+		return score;
+	}
+	public void setScore(Double score) {
+		this.score = score;
+	}
 	
 	
 }
