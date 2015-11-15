@@ -27,7 +27,6 @@ public class Result implements Serializable{
 	
 	boolean correct;
 	
-	Double score;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -65,13 +64,7 @@ public class Result implements Serializable{
 		this.correct = correct;
 	}
 	
-	@Column(name = "SCORE",  nullable = false)
-	public Double getScore() {
-		return score;
-	}
-	public void setScore(Double score) {
-		this.score = score;
-	}
+	
 	
 	
 	

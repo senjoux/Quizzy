@@ -16,7 +16,6 @@ import javax.persistence.Table;
 @Table(name="answer")
 public class Answer implements Serializable {
 
-	
 	private static final long serialVersionUID = -1878984191983675295L;
 
 	Integer answer_id;

@@ -27,6 +27,8 @@ public class Question implements Serializable {
 	
 	Set<Answer> question_answers=new HashSet<Answer>(0);
 
+	Integer level;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "QUESTION_ID",unique=true,nullable=false )
@@ -55,6 +57,15 @@ public class Question implements Serializable {
 
 	public void setQuestion_answers(Set<Answer> question_answers) {
 		this.question_answers = question_answers;
+	}
+
+	@Column(name = "LEVEL", nullable = false)
+	public Integer getLevel() {
+		return level;
+	}
+
+	public void setLevel(Integer level) {
+		this.level = level;
 	}
 
 	
