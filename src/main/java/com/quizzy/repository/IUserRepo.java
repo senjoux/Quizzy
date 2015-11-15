@@ -8,6 +8,7 @@ import com.quizzy.entity.User;
 
 public interface IUserRepo extends CrudRepository<User, Integer> {
 
+	
 	List<User> findByName(String name);
 	List<User> findByNameLike(String name);
 	

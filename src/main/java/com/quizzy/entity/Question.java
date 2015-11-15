@@ -23,7 +23,7 @@ public class Question implements Serializable {
 	
 	Integer question_id;
 	
-	String question_text;
+	String questionText;
 	
 	Set<Answer> question_answers=new HashSet<Answer>(0);
 
@@ -41,12 +41,12 @@ public class Question implements Serializable {
 	}
 
 	@Column(name = "QUESTION_TEXT", unique = true, nullable = false, length = 150)
-	public String getQuestion_text() {
-		return question_text;
+	public String getQuestionText() {
+		return questionText;
 	}
 
-	public void setQuestion_text(String question_text) {
-		this.question_text = question_text;
+	public void setQuestionText(String questionText) {
+		this.questionText = questionText;
 	}
 
 

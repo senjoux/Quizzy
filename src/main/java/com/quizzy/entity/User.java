@@ -39,6 +39,17 @@ public class User implements Serializable{
 	
 	Double score;
 
+	
+	
+	public User(boolean admin, String name, String surname, String email, String password) {
+		this.admin = admin;
+		this.name = name;
+		this.surname = surname;
+		this.email = email;
+		this.password = password;
+		this.score = (double) 0;
+	}
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "USER_ID",unique=true,nullable=false )
@@ -61,7 +72,7 @@ public class User implements Serializable{
 	public String getName() {
 		return name;
 	}
-	public void setNom(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
