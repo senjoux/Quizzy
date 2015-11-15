@@ -9,7 +9,7 @@ import com.quizzy.entity.Question;
 
 public interface IAnswerRepo extends CrudRepository<Answer, Integer>{
 	
-	List<Answer> findByAnswer_textLike(String answer_text);
+	List<Answer> findByAnswerTextLike(String answer_text);
 
 	List<Answer> findByQuestion(Question question);
 

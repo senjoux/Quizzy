@@ -20,7 +20,7 @@ public class Answer implements Serializable {
 
 	Integer answer_id;
 	
-	String answer_text;
+	String answerText;
 	
 	boolean correct;
 	
@@ -40,12 +40,12 @@ public class Answer implements Serializable {
 	
 
 	@Column(name = "ANSWER_TEXT", unique = true, nullable = false, length = 50)
-	public String getAnswer_text() {
-		return answer_text;
+	public String getAnswerText() {
+		return answerText;
 	}
 
-	public void setAnswer_text(String answer_text) {
-		this.answer_text = answer_text;
+	public void setAnswerText(String answerText) {
+		this.answerText = answerText;
 	}
 
 	@Column(name = "IS_CORRECT",  nullable = false)
