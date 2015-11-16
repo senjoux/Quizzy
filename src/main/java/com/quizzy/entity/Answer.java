@@ -18,13 +18,13 @@ public class Answer implements Serializable {
 
 	private static final long serialVersionUID = -1878984191983675295L;
 
-	Integer answer_id;
+	private Integer answer_id;
 	
-	String answerText;
+	private String answerText;
 	
-	boolean correct;
+	private boolean correct;
 	
-	Question question;
+	private Question question;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

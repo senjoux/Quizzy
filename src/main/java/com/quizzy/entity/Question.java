@@ -21,13 +21,13 @@ public class Question implements Serializable {
 	
 	private static final long serialVersionUID = 805756794398297113L;
 	
-	Integer question_id;
+	private Integer question_id;
 	
-	String questionText;
+	private String questionText;
 	
-	Set<Answer> question_answers=new HashSet<Answer>(0);
+	private Set<Answer> question_answers=new HashSet<Answer>(0);
 
-	Integer level;
+	private Integer level;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

@@ -20,13 +20,13 @@ public class User_Answer implements Serializable {
 	private static final long serialVersionUID = 5103209098843392872L;
 
 	
-	Integer user_answer_id;
+	private Integer user_answer_id;
 	
-	Question question;
+	private Question question;
 	
-	Answer answer;
+	private Answer answer;
 	
-	User user;
+	private User user;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
