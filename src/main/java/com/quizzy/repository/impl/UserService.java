@@ -15,6 +15,7 @@ public class UserService implements IUserService{
 	public User addUser(Boolean admin, String name, String surname,
 			String email, String password) {
 		User u=new User(admin, name, surname, email, password);
+		u.setScore((double) 0);
 	return	userRepo.save(u);	
 	}
 

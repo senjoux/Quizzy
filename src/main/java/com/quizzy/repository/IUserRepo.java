@@ -19,5 +19,7 @@ public interface IUserRepo extends CrudRepository<User, Integer> {
 	List<User> findByEmail(String email);
 	
 	List<User> findByAdminIsTrue();
+	
+	
 
 }

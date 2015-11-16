@@ -19,13 +19,13 @@ public class Result implements Serializable{
 
 	private static final long serialVersionUID = 4411181409445218557L;
 
-	Integer result_id;
+	private Integer result_id;
 	
-	Question question;
+	private Question question;
 	
-	User user;
+	private User user;
 	
-	boolean correct;
+	private boolean correct;
 	
 	
 	@Id

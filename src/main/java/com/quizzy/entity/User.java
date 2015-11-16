@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.Objects;
+
 
 @Entity
 @Table(name="user")
@@ -21,24 +23,23 @@ public class User implements Serializable{
 	private static final long serialVersionUID = -8395567922919902696L;
 	
 	
-	Integer user_id;
+	private Integer user_id;
 	
-	boolean admin;
+	private boolean admin;
 	
-	String name;
+	private String name;
 	
-	String surname;
+	private String surname;
 	
-	String email;
+	private String email;
 	
-	String password;
+	private String password;
 	
-	Set<User_Answer> user_questions_answers=new HashSet<User_Answer>(0);
+	private Double score;
 	
-	Set<Result> user_results=new HashSet<Result>(0);
+	private Set<User_Answer> user_questions_answers=new HashSet<User_Answer>(0);
 	
-	Double score;
-
+	private Set<Result> user_results=new HashSet<Result>(0);
 	
 	
 	public User(boolean admin, String name, String surname, String email, String password) {
@@ -123,6 +124,24 @@ public class User implements Serializable{
 	public void setScore(Double score) {
 		this.score = score;
 	}
+
+	@Override
+	public boolean equals(final Object other) {
+		if (!(other instanceof User)) {
+			return false;
+		}
+		User castOther = (User) other;
+		return  Objects.equals(name, castOther.name)
+				&& Objects.equals(surname, castOther.surname)
+				&& Objects.equals(email, castOther.email);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(user_id, name, surname, email);
+	}
+
+	
 	
 	
 }
