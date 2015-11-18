@@ -1,5 +1,7 @@
 package com.quizzy.repository.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,7 @@ import com.quizzy.service.IUserService;
 
 @Service
 public class UserService implements IUserService{
+	
 	@Autowired
 	IUserRepo userRepo;
 	
@@ -19,26 +22,68 @@ public class UserService implements IUserService{
 	return	userRepo.save(u);	
 	}
 
-	public void deleteUser(Integer user_id){
-		userRepo.delete(user_id);
+	public boolean deleteUser(Integer userID){
+		userRepo.delete(userID);
+		User temp=userRepo.findOne(userID);
+		if(temp!=null){
+			return false;
+		}
+		return true;
 	}
 
-	public User updateUser(Integer user_id, User user) {
-		User temp=userRepo.findOne(user_id);
+	public User updateUser(Integer userID, User user) {
+		User temp=userRepo.findOne(userID);
 		temp.setAdmin(user.isAdmin());
 		temp.setName(user.getName());
 		temp.setSurname(user.getSurname());
 		temp.setEmail(user.getEmail());
 		temp.setPassword(user.getPassword());
 		
-		return temp;
+		return userRepo.save(temp);
 	}
 
-	public void updateUserScore(Integer user_id,Double x) {
-		User temp=userRepo.findOne(user_id);
-		Double y=temp.getScore();
+	public User updateUserScore(Integer userID,double x) {
+		User temp=userRepo.findOne(userID);
+		double y=temp.getScore();
 		temp.setScore(y+x);
+		return userRepo.save(temp);
 	}
 	
+	public User findUser(Integer userID) {
+		return userRepo.findOne(userID);
+	}
+	
+	public List<User> findByName(String name){
+		return userRepo.findByName(name);
+	}
+	
+	public List<User> findByNameLike(String name){
+		return userRepo.findByNameLike(name);
+	}
+	
+	public List<User> findBySurname(String surname){
+		return userRepo.findBySurname(surname);
+	}
+	
+	public List<User> findBySurnameLike(String surname){
+		return userRepo.findBySurnameLike(surname);
+	}
+	
+	public List<User> findByEmailLike(String email){
+		return userRepo.findByEmailLike(email);
+	}
+	
+	public List<User> findByEmail(String email){
+		return userRepo.findByEmail(email);
+	}
+	
+	public List<User> findByAdminIsTrue(){
+		return userRepo.findByAdminIsTrue();
+	}
+	
+	public List<User> findByAdminIsFalse(){
+		return userRepo.findByAdminIsFalse();
+	}
+
 	
 }

@@ -2,6 +2,7 @@ package com.quizzy.entity;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -12,8 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.Objects;
-
 
 @Entity
 @Table(name="user")
@@ -23,7 +22,7 @@ public class User implements Serializable{
 	private static final long serialVersionUID = -8395567922919902696L;
 	
 	
-	private Integer user_id;
+	private Integer userID;
 	
 	private boolean admin;
 	
@@ -35,12 +34,15 @@ public class User implements Serializable{
 	
 	private String password;
 	
-	private Double score;
+	private double score;
 	
 	private Set<User_Answer> user_questions_answers=new HashSet<User_Answer>(0);
 	
 	private Set<Result> user_results=new HashSet<Result>(0);
 	
+	
+
+	public User(){}
 	
 	public User(boolean admin, String name, String surname, String email, String password) {
 		this.admin = admin;
@@ -48,17 +50,17 @@ public class User implements Serializable{
 		this.surname = surname;
 		this.email = email;
 		this.password = password;
-		this.score = (double) 0;
+		//this.score = (double) 0;
 	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "USER_ID",unique=true,nullable=false )
-	public Integer getUser_id() {
-		return user_id;
+	public Integer getuserID() {
+		return userID;
 	}
-	public void setUser_id(Integer user_id) {
-		this.user_id = user_id;
+	public void setuserID(Integer userID) {
+		this.userID = userID;
 	}
 
 	@Column(name = "IS_ADMIN",  nullable = false)
@@ -118,7 +120,7 @@ public class User implements Serializable{
 	}
 
 	@Column(name = "SCORE",  nullable = false)
-	public Double getScore() {
+	public double getScore() {
 		return score;
 	}
 	public void setScore(Double score) {
@@ -138,9 +140,17 @@ public class User implements Serializable{
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(user_id, name, surname, email);
+		return Objects.hash(userID, name, surname, email);
 	}
 
+	@Override
+	public String toString() {
+		return "User [user_id=" + userID + ", admin=" + admin + ", name="
+				+ name + ", surname=" + surname + ", email=" + email
+				+ ", password=" + password + ", score=" + score + "]";
+	}
+
+	
 	
 	
 	

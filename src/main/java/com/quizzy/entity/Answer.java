@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.util.Objects;
 
 @Entity
 @Table(name="answer")
@@ -18,24 +19,40 @@ public class Answer implements Serializable {
 
 	private static final long serialVersionUID = -1878984191983675295L;
 
-	private Integer answer_id;
+	private Integer AnswerID;
 	
 	private String answerText;
 	
 	private boolean correct;
 	
 	private Question question;
+	
+
+
+	public Answer() {}
+	
+	public Answer(String answerText, boolean correct) {
+		this.answerText = answerText;
+		this.correct = correct;
+	}
+	
+	public Answer(String answerText, boolean correct, Question question) {
+		this.answerText = answerText;
+		this.correct = correct;
+		this.question = question;
+	}
+
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "ANSWER_ID",unique=true,nullable=false )
-	public Integer getAnswer_id() {
-		return answer_id;
+	public Integer getAnswerID() {
+		return AnswerID;
 	}
 
 
-	public void setAnswer_id(Integer answer_id) {
-		this.answer_id = answer_id;
+	public void setAnswerID(Integer AnswerID) {
+		this.AnswerID = AnswerID;
 	}
 	
 
@@ -57,7 +74,7 @@ public class Answer implements Serializable {
 		this.correct = correct;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="QUESTION_ID",nullable=false)
 	public Question getQuestion() {
 		return question;
@@ -68,8 +85,22 @@ public class Answer implements Serializable {
 	}
 
 	
+	@Override
+	public boolean equals(final Object other) {
+		if (!(other instanceof Answer)) {
+			return false;
+		}
+		Answer castOther = (Answer) other;
+		return Objects.equals(answerText, castOther.answerText)
+				&& Objects.equals(correct, castOther.correct)
+				&& Objects.equals(question, castOther.question);
+	}
 
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(answerText, correct, question);
+	}
+
 	
 	
 }

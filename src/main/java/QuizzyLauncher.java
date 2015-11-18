@@ -78,7 +78,7 @@ public class QuizzyLauncher {
 		return txManager;
 	}
 	
-	
+	/*
 	public void execute() {
 			@SuppressWarnings("resource")
 			ApplicationContext context = new AnnotationConfigApplicationContext(QuizzyLauncher.class);
@@ -89,5 +89,5 @@ public class QuizzyLauncher {
 	public static void main(String[] args) {
 		new QuizzyLauncher().execute();
 	}
-
+*/
 }

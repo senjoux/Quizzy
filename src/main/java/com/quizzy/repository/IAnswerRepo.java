@@ -12,5 +12,8 @@ public interface IAnswerRepo extends CrudRepository<Answer, Integer>{
 	List<Answer> findByAnswerTextLike(String answer_text);
 
 	List<Answer> findByQuestion(Question question);
-
+	
+	List<Answer> findByCorrectIsTrueAndQuestion(Question question);
+	List<Answer> findByCorrectIsFalseAndQuestion(Question question);
+	 
 }
