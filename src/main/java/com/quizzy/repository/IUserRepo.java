@@ -13,12 +13,13 @@ public interface IUserRepo extends CrudRepository<User, Integer> {
 	List<User> findByNameLike(String name);
 	
 	List<User> findBySurname(String surname);
-	List<User> findBySurnameLike(String name);
+	List<User> findBySurnameLike(String surname);
 
-	List<User> findByEmailLike(String name);
+	List<User> findByEmailLike(String email);
 	List<User> findByEmail(String email);
 	
 	List<User> findByAdminIsTrue();
+	List<User> findByAdminIsFalse();
 	
 	
 
