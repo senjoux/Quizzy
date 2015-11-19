@@ -1,5 +1,8 @@
 import static org.junit.Assert.*;
 
+import java.util.List;
+import java.util.Set;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +18,7 @@ import com.quizzy.repository.impl.QuestionService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes=QuizzyLauncher.class,loader=AnnotationConfigContextLoader.class)
-public class QuestionRepoTest {
+public class QuestionServiceTest {
 
 	@Autowired
 	QuestionService questionService;
@@ -99,5 +102,11 @@ public class QuestionRepoTest {
 	}
 	*/
 	
-	
+	/*
+	@Test
+	public void getAllQuestionTest(){
+		Set<Question> temp=questionService.getAllQuestion();
+		assertEquals("nunmer of questions", 3, temp.size());
+	}
+	*/
 }

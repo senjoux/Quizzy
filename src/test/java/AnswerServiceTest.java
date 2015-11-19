@@ -15,7 +15,7 @@ import com.quizzy.repository.impl.QuestionService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes=QuizzyLauncher.class,loader=AnnotationConfigContextLoader.class)
-public class AnswerRepoTest {
+public class AnswerServiceTest {
 
 	@Autowired
 	QuestionService questionService;
@@ -26,8 +26,8 @@ public class AnswerRepoTest {
 	/*
 	@Test
 	public void answerAddTest(){
-		Question question=questionService.findQuestion(3);
-		Answer expected=answerService.addAnswer("tn2", false, question);
+		Question question=questionService.findQuestion(2);
+		Answer expected=answerService.addAnswer("eem ca passe", false, question);
 		assertNotNull(expected);
 	}
 	*/
@@ -53,6 +53,25 @@ public class AnswerRepoTest {
 	}
 	*/
 	
+	/*
+	@Test
+	public void findByQuestion(){
+		assertEquals("number of answers", 3,answerService.findByQuestion(questionService.findQuestion(3)).size());
+	}
+	*/
 	
+	/*
+	@Test
+	public void findByCorrectIsTrueAndQuestion(){
+		assertEquals("number of answers", 1,answerService.findByCorrectIsTrueAndQuestion(questionService.findQuestion(3)).size());
+	}
+	*/
+	
+	/*
+	@Test
+	public void findByCorrectIsFalseAndQuestion(){
+		assertEquals("number of answers", 2,answerService.findByCorrectIsFalseAndQuestion(questionService.findQuestion(3)).size());
+	}
+	*/
 	
 }

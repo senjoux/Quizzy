@@ -16,7 +16,7 @@ import com.quizzy.repository.impl.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes=QuizzyLauncher.class,loader=AnnotationConfigContextLoader.class)
-public class UserRepoTest  {
+public class UserServiceTest  {
 
 	@Autowired
 	UserService userService;

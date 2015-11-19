@@ -1,5 +1,8 @@
 package com.quizzy.service;
 
+import java.util.List;
+import java.util.Set;
+
 import com.quizzy.entity.Question;
 
 public interface IQuestionService {
@@ -14,5 +17,6 @@ public interface IQuestionService {
 	Question updateQuestion(Integer questionID, Question question); 
 	Question updateQuestionText(Integer questionID, String questionText);
 	Question updateQuestionLevel(Integer questionID,int level);
-	
+
+	Set<Question> getAllQuestion();
 }

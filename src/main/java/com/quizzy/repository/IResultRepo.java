@@ -15,7 +15,13 @@ public interface IResultRepo extends CrudRepository<Result, Integer>{
 	List<Result> findByQuestion(Question question);
 
 	List<Result> findByCorrectIsTrue();
+	List<Result> findByCorrectIsFalse();
 	
 	List<Result> findByUserAndCorrectIsTrue(User user);
-
+	List<Result> findByUserAndCorrectIsFalse(User user);
+	
+	List<Result> findByQuestionAndCorrectIsTrue(Question question);
+	List<Result> findByQuestionAndCorrectIsFalse(Question question);
+	
+	
 }
