@@ -1,6 +1,8 @@
 package com.quizzy.repository.impl;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -77,6 +79,13 @@ public class QuestionService implements IQuestionService{
 	
 	public List<Question> findByLevelGreaterThanEqual(int level){
 		return questionRepo.findByLevelGreaterThanEqual(level);
+	}
+
+
+	public Set<Question> getAllQuestion() {
+		List<Question> temp=(List<Question>)questionRepo.findAll(); 
+		Set<Question> s = temp.isEmpty() ? new HashSet<Question>() : new HashSet<Question>(temp);
+		return s;
 	}
 	
 }

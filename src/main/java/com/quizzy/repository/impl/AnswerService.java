@@ -1,6 +1,7 @@
 package com.quizzy.repository.impl;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,4 +86,16 @@ public class AnswerService implements IAnswerService{
 		return answerRepo.save(temp);
 	}
 
+	public List<Answer> findByQuestion(Question question){
+		return answerRepo.findByQuestion(question);
+	}
+	
+	public List<Answer> findByCorrectIsTrueAndQuestion(Question question){
+		return answerRepo.findByCorrectIsTrueAndQuestion(question);
+	}
+	
+	public List<Answer> findByCorrectIsFalseAndQuestion(Question question){
+		return answerRepo.findByCorrectIsFalseAndQuestion(question);
+	}
+	
 }

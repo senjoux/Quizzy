@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -36,9 +37,9 @@ public class User implements Serializable{
 	
 	private double score;
 	
-	private Set<User_Answer> user_questions_answers=new HashSet<User_Answer>(0);
+	private Set<UserAnswer> userAnswers=new HashSet<UserAnswer>(0);
 	
-	private Set<Result> user_results=new HashSet<Result>(0);
+	private Set<Result> userResults=new HashSet<Result>(0);
 	
 	
 
@@ -103,20 +104,20 @@ public class User implements Serializable{
 		this.password = password;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-	public Set<User_Answer> getUser_questions_answers() {
-		return user_questions_answers;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user",cascade=CascadeType.ALL)
+	public Set<UserAnswer> getUserAnswers() {
+		return userAnswers;
 	}
-	public void setUser_questions_answers(Set<User_Answer> user_questions_answers) {
-		this.user_questions_answers = user_questions_answers;
+	public void setUserAnswers(Set<UserAnswer> userAnswers) {
+		this.userAnswers = userAnswers;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-	public Set<Result> getUser_results() {
-		return user_results;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user",cascade=CascadeType.ALL)
+	public Set<Result> getUserResults() {
+		return userResults;
 	}
-	public void setUser_results(Set<Result> user_results) {
-		this.user_results = user_results;
+	public void setUserResults(Set<Result> userResults) {
+		this.userResults = userResults;
 	}
 
 	@Column(name = "SCORE",  nullable = false)

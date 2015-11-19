@@ -36,7 +36,6 @@ public class Question implements Serializable {
 	public Question(){}
 	
 	public Question(String questionText, int level) {
-		super();
 		this.questionText = questionText;
 		this.level = level;
 	}
@@ -44,7 +43,6 @@ public class Question implements Serializable {
 	
 
 	public Question(String questionText) {
-		super();
 		this.questionText = questionText;
 	}
 
